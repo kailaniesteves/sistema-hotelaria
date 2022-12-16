@@ -43,10 +43,10 @@ public class WorksForController {
             return worksForUpdateService.updateWorksFor(worksForToUpdate);
         }
 
-        @DeleteMapping(MAIN_PATH + "/{cpf}/{tradeMark}/{cnpj}")
+        @DeleteMapping(MAIN_PATH + "/{cpf}")
         @ResponseBody
-        public ResponseEntity<String> deleteUnity(@PathVariable final Long cpf,@PathVariable final String tradeMark, @PathVariable final Long cnpj) {
-            worksForRepository.deleteByTradeMarkAndCnpjAndCpf(tradeMark, cnpj, cpf);
+        public ResponseEntity<String> deleteUnity(@PathVariable final Long cpf) {
+            worksForRepository.deleteByCpf(cpf);
             return new ResponseEntity<>(HttpStatusCode.valueOf(200));
         }
 

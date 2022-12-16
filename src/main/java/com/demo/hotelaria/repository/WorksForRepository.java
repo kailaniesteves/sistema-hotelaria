@@ -11,5 +11,5 @@ public interface WorksForRepository extends CrudRepository<WorksFor, Long> {
 
     Optional<WorksFor> findByTradeMarkAndCnpjAndCpf(final String tradeMark, final Long cnpj, final Long cpf);
 
-    void deleteByTradeMarkAndCnpjAndCpf(final String tradeMark, final Long cnpj, final Long cpf);
+    void deleteByCpf(final Long cpf);
 }
