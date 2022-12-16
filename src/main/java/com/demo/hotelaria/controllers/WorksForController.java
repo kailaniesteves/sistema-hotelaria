@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class WorksForController {
-        public static final String MAIN_PATH = "hotelaria/demo/works_for";
+        public static final String MAIN_PATH = "hotelaria/demo/worksFor";
         private WorksForRepository worksForRepository;
         private WorksForUpdateService worksForUpdateService;
 
