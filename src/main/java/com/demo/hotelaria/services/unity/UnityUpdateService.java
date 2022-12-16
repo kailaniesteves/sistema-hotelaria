@@ -1,19 +1,19 @@
 package com.demo.hotelaria.services.unity;
 
-import com.demo.hotelaria.domain.Unity;
-import com.demo.hotelaria.repository.UnityRepository;
+import com.demo.hotelaria.domain.Unit;
+import com.demo.hotelaria.repository.UnitRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UnityUpdateService {
 
-    public static UnityRepository unityRepository;
-    public static Unity updateUnity(Unity unityToUpdate) {
-        Unity oldUnity = unityRepository.findByTradeMarkAndCnpj(
-                unityToUpdate.getTradeMark(),
-                unityToUpdate.getCnpj())
+    public static UnitRepository unitRepository;
+    public static Unit updateUnity(Unit unitToUpdate) {
+        Unit oldUnit = unitRepository.findByTradeMarkAndCnpj(
+                unitToUpdate.getTradeMark(),
+                unitToUpdate.getCnpj())
                 .orElseThrow();
-        oldUnity = unityToUpdate;
-        return unityRepository.save(oldUnity);
+        oldUnit = unitToUpdate;
+        return unitRepository.save(oldUnit);
     }
 }

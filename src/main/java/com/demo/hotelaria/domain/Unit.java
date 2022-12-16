@@ -2,11 +2,13 @@ package com.demo.hotelaria.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import lombok.Data;
 
 @Data
 @Entity
-public class Unity {
+@IdClass(UnityId.class)
+public class Unit {
 
     @Id
     private String tradeMark;
@@ -15,8 +17,8 @@ public class Unity {
     private Double area;
     private String category;
     private String sector;
-    private String state;
-    private String country;
-    private String street;
-    private String city;
+    private String locState;
+    private String locCountry;
+    private String locStreet;
+    private String locCity;
 }

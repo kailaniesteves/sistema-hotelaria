@@ -1,14 +1,16 @@
 package com.demo.hotelaria.services.unity;
 
-import com.demo.hotelaria.domain.Unity;
-import com.demo.hotelaria.repository.UnityRepository;
+import com.demo.hotelaria.domain.Unit;
+import com.demo.hotelaria.repository.UnitRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class UnityCreateService {
 
-    private static UnityRepository unityRepository;
-    public static Unity createUnity(Unity unityToCreate) {
-        return unityRepository.save(unityToCreate);
+    private UnitRepository unitRepository;
+    public Unit createUnity(Unit unitToCreate) {
+        return unitRepository.save(unitToCreate);
     }
 }

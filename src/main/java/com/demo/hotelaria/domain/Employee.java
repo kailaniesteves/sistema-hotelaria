@@ -10,14 +10,13 @@ public class Employee {
 
     @Id
     private Long cpf;
-    private Long phoneNumber;
-    private String email;
-    private String role;
+    private String contract_type;
+    private Long IdRol;
     private Double vr;
     private Double vt;
-    private String healthPlan;
+    private Long IdSup;
+    private Long IdHea;
     private Double salary;
-    private String address;
-    private String firstName;
-    private String lastName;
+    private String namFirstName;
+    private String namLastName;
 }
