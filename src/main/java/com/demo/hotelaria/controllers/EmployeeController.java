@@ -1,9 +1,9 @@
 package com.demo.hotelaria.controllers;
 
 import com.demo.hotelaria.domain.Employee;
+import com.demo.hotelaria.repository.EmployeeRepository;
 import com.demo.hotelaria.services.employee.EmployeeCreateService;
 import com.demo.hotelaria.services.employee.EmployeeDeleteService;
-import com.demo.hotelaria.services.employee.EmployeeFindService;
 import com.demo.hotelaria.services.employee.EmployeeUpdateService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,19 +16,19 @@ import java.util.List;
 public class EmployeeController {
 
     private static final String MAIN_PATH = "hotelaria/demo/employee";
+    private EmployeeRepository employeeRepository;
     private EmployeeCreateService employeeCreateService;
-    private EmployeeFindService employeeFindService;
 
     @GetMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
-    public EmployeeResponse getEmployee(@PathVariable final Long cpf) {
-        return employeeFindService.findEmployee(cpf);
+    public Employee getEmployee(@PathVariable final Long cpf) {
+        return employeeRepository.findByCpf(cpf).orElseThrow();
     }
 
     @GetMapping(MAIN_PATH)
     @ResponseBody
-    public List<EmployeeResponse> getAllEmployees() {
-        return employeeFindService.findAllEmployees();
+    public List<Employee> getAllEmployees() {
+        return (List<Employee>) employeeRepository.findAll();
     }
 
     @PostMapping(MAIN_PATH)

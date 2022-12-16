@@ -16,28 +16,4 @@ public class WorksFor {
     private Long cnpj;
     @Id
     private String tradeMark;
-
-    public Long getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(Long cpf) {
-        this.cpf = cpf;
-    }
-
-    public Long getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(Long cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getTradeMark() {
-        return tradeMark;
-    }
-
-    public void setTradeMark(String tradeMark) {
-        this.tradeMark = tradeMark;
-    }
 }
