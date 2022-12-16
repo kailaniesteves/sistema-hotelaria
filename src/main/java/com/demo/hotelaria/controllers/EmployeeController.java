@@ -47,7 +47,8 @@ public class EmployeeController {
     public Employee updateEmployee(@RequestBody final Employee employeeToUpdate) {
         return EmployeeUpdateService.updateEmployee(employeeToUpdate);
     }
-    @CrossOrigin
+
+    @CrossOrigin(methods = RequestMethod.DELETE)
     @DeleteMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
     public ResponseEntity<String> deleteEmployee(@PathVariable final Long cpf) {
