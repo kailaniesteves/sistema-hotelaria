@@ -6,6 +6,8 @@ import com.demo.hotelaria.services.employee.EmployeeDeleteService;
 import com.demo.hotelaria.services.employee.EmployeeFindService;
 import com.demo.hotelaria.services.employee.EmployeeUpdateService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,8 +49,10 @@ public class EmployeeController {
     }
     @CrossOrigin
     @DeleteMapping(MAIN_PATH + "/{cpf}")
-    public void deleteEmployee(@PathVariable final Long cpf) {
+    @ResponseBody
+    public ResponseEntity<String> deleteEmployee(@PathVariable final Long cpf) {
         EmployeeDeleteService.deleteEmployee(cpf);
+        return new ResponseEntity<>(HttpStatusCode.valueOf(200));
     }
 }
 
