@@ -15,7 +15,7 @@ public class WorksForUpdateService {
                 worksForToUpdate.getTradeMark(),
                 worksForToUpdate.getCnpj(),
                 worksForToUpdate.getCpf())
-                .orElseThrow();
+                .orElseThrow(RuntimeException::new);
         worksFor = worksForToUpdate;
         return worksForRepository.save(worksFor);
     }

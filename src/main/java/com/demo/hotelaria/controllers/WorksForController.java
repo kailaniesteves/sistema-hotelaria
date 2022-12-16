@@ -21,7 +21,7 @@ public class WorksForController {
         @GetMapping(MAIN_PATH + "/{cpf}/{tradeMark}/{cnpj}")
         @ResponseBody
         public WorksFor getWorkFor(@PathVariable final Long cpf, @PathVariable final String tradeMark, @PathVariable final Long cnpj) {
-            return worksForRepository.findByTradeMarkAndCnpjAndCpf(tradeMark,cnpj,cpf).orElseThrow();
+            return worksForRepository.findByTradeMarkAndCnpjAndCpf(tradeMark,cnpj,cpf).orElseThrow(RuntimeException::new);
         }
 
         @GetMapping(MAIN_PATH)

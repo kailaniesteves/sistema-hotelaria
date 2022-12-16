@@ -1,36 +1,26 @@
-package com.demo.hotelaria.domain;
+package com.demo.hotelaria.controllers;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.demo.hotelaria.domain.HealthPlan;
+import com.demo.hotelaria.domain.Roles;
+import com.demo.hotelaria.domain.Unit;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.util.List;
 
 @Data
-@Entity
-@Getter
-@Setter
-public class Employee {
+public class EmployeeResponse {
 
-    @Id
     private Long cpf;
     private String contract_type;
-    private Long IdRol;
+    private Roles roles;
+    private List<Unit> worksFor;
     private Double vr;
     private Double vt;
     private Long IdSup;
-    private Long IdHea;
+    private HealthPlan employeeHealthPlan;
     private Double salary;
     private String namFirstName;
     private String namLastName;
-
-    public Long getIdRol() {
-        return IdRol;
-    }
-
-    public void setIdRol(Long idRol) {
-        IdRol = idRol;
-    }
 
     public Long getCpf() {
         return cpf;
@@ -46,6 +36,22 @@ public class Employee {
 
     public void setContract_type(String contract_type) {
         this.contract_type = contract_type;
+    }
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
+
+    public List<Unit> getWorksFor() {
+        return worksFor;
+    }
+
+    public void setWorksFor(List<Unit> worksFor) {
+        this.worksFor = worksFor;
     }
 
     public Double getVr() {
@@ -72,12 +78,12 @@ public class Employee {
         IdSup = idSup;
     }
 
-    public Long getIdHea() {
-        return IdHea;
+    public HealthPlan getEmployeeHealthPlan() {
+        return employeeHealthPlan;
     }
 
-    public void setIdHea(Long idHea) {
-        IdHea = idHea;
+    public void setEmployeeHealthPlan(HealthPlan employeeHealthPlan) {
+        this.employeeHealthPlan = employeeHealthPlan;
     }
 
     public Double getSalary() {

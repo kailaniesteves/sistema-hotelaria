@@ -25,7 +25,7 @@ public class UnityController {
     @GetMapping(MAIN_PATH + "/{tradeMark}/{cnpj}")
     @ResponseBody
     public Unit getUnity(@PathVariable final String tradeMark, @PathVariable final Long cnpj) {
-        return unitRepository.findByTradeMarkAndCnpj(tradeMark, cnpj).orElseThrow();
+        return unitRepository.findByTradeMarkAndCnpj(tradeMark, cnpj).orElseThrow(RuntimeException::new);
     }
 
     @GetMapping(MAIN_PATH)
