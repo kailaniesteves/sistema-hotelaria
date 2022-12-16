@@ -25,6 +25,7 @@ public class EmployeeController {
         return employeeFindService.findEmployee(cpf);
     }
 
+    @CrossOrigin
     @GetMapping(MAIN_PATH)
     @ResponseBody
     public List<EmployeeResponse> getAllEmployees() {
