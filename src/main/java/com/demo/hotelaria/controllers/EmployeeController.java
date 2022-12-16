@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class EmployeeController {
 
@@ -48,7 +49,6 @@ public class EmployeeController {
         return EmployeeUpdateService.updateEmployee(employeeToUpdate);
     }
 
-    @CrossOrigin(methods = RequestMethod.DELETE)
     @DeleteMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
     public ResponseEntity<String> deleteEmployee(@PathVariable final Long cpf) {
