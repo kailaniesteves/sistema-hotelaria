@@ -18,18 +18,21 @@ public class WorksForController {
         private WorksForRepository worksForRepository;
         private WorksForUpdateService worksForUpdateService;
 
+        @CrossOrigin
         @GetMapping(MAIN_PATH + "/{cpf}/{tradeMark}/{cnpj}")
         @ResponseBody
         public WorksFor getWorkFor(@PathVariable final Long cpf, @PathVariable final String tradeMark, @PathVariable final Long cnpj) {
             return worksForRepository.findByTradeMarkAndCnpjAndCpf(tradeMark,cnpj,cpf).orElseThrow();
         }
 
+        @CrossOrigin
         @GetMapping(MAIN_PATH)
         @ResponseBody
         public List<WorksFor> getAllWorkFor() {
             return (List<WorksFor>) worksForRepository.findAll();
         }
 
+        @CrossOrigin
         @PostMapping(MAIN_PATH)
         @ResponseBody
         public WorksFor createUnity(@RequestBody final WorksFor worksForToCreate) {
@@ -37,12 +40,14 @@ public class WorksForController {
 
         }
 
+        @CrossOrigin
         @PutMapping(MAIN_PATH)
         @ResponseBody
         public WorksFor updateUnity(@RequestBody final WorksFor worksForToUpdate) {
             return worksForUpdateService.updateWorksFor(worksForToUpdate);
         }
 
+        @CrossOrigin
         @DeleteMapping(MAIN_PATH + "/{cpf}")
         @ResponseBody
         public ResponseEntity<String> deleteUnity(@PathVariable final Long cpf) {

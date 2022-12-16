@@ -22,18 +22,21 @@ public class UnityController {
     private UnityCreateService unityCreateService;
     private UnityDeleteService unityDeleteService;
 
+    @CrossOrigin
     @GetMapping(MAIN_PATH + "/{tradeMark}/{cnpj}")
     @ResponseBody
     public Unit getUnity(@PathVariable final String tradeMark, @PathVariable final Long cnpj) {
         return unitRepository.findByTradeMarkAndCnpj(tradeMark, cnpj).orElseThrow();
     }
 
+    @CrossOrigin
     @GetMapping(MAIN_PATH)
     @ResponseBody
     public List<Unit> getAllUnities() {
         return (List<Unit>) unitRepository.findAll();
     }
 
+    @CrossOrigin
     @PostMapping(MAIN_PATH)
     @ResponseBody
     public Unit createUnity(@RequestBody final Unit unitToCreate) {
@@ -42,12 +45,14 @@ public class UnityController {
 
     }
 
+    @CrossOrigin
     @PutMapping(MAIN_PATH)
     @ResponseBody
     public Unit updateUnity(@RequestBody final Unit unitToUpdate) {
         return UnityUpdateService.updateUnity(unitToUpdate);
     }
 
+    @CrossOrigin
     @DeleteMapping(MAIN_PATH + "/{tradeMark}/{cnpj}")
     @ResponseBody
     public ResponseEntity<String> deleteUnity(@PathVariable final String tradeMark, @PathVariable final Long cnpj) {
