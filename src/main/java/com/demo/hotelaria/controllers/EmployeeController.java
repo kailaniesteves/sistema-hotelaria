@@ -22,6 +22,8 @@ public class EmployeeController {
     private static final String MAIN_PATH = "hotelaria/demo/employee";
     private EmployeeCreateService employeeCreateService;
     private EmployeeFindService employeeFindService;
+    private EmployeeDeleteService employeeDeleteService;
+    private EmployeeUpdateService employeeUpdateService;
 
     @GetMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
@@ -42,13 +44,13 @@ public class EmployeeController {
     @PutMapping(MAIN_PATH)
     @ResponseBody
     public Employee updateEmployee(@RequestBody final Employee employeeToUpdate) {
-        return EmployeeUpdateService.updateEmployee(employeeToUpdate);
+        return employeeUpdateService.updateEmployee(employeeToUpdate);
     }
 
     @DeleteMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
     public ResponseEntity<String> deleteEmployee(@PathVariable final Long cpf) {
-        EmployeeDeleteService.deleteEmployee(cpf);
+        employeeDeleteService.deleteEmployee(cpf);
         return new ResponseEntity<>(HttpStatusCode.valueOf(200));
     }
 }

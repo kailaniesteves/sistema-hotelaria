@@ -1,13 +1,15 @@
 package com.demo.hotelaria.services.employee;
 
 import com.demo.hotelaria.repository.EmployeeRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class EmployeeDeleteService {
 
-    private static EmployeeRepository employeeRepository;
-    public static void deleteEmployee(final Long cpf) {
+    private EmployeeRepository employeeRepository;
+    public void deleteEmployee(final Long cpf) {
         employeeRepository.deleteById(cpf);
     }
 }
