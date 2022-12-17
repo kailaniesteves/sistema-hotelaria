@@ -16,7 +16,7 @@ public class Employee {
     private Double vt;
     private Long IdSup;
     private Long IdHea;
-    private Double salary;
+    private Long salary;
     private String namFirstName;
     private String namLastName;
 }
