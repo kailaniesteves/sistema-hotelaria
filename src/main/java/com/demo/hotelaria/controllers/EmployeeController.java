@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = {"http://localhost:5173/", "https://fanciful-seahorse-473f0d.netlify.app/", "*"},
+methods={RequestMethod.GET, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.POST})
 @AllArgsConstructor
 public class EmployeeController {
 
@@ -22,7 +23,6 @@ public class EmployeeController {
     private EmployeeCreateService employeeCreateService;
     private EmployeeFindService employeeFindService;
 
-    @CrossOrigin
     @GetMapping(MAIN_PATH + "/{cpf}")
     @ResponseBody
     public EmployeeResponse getEmployee(@PathVariable final Long cpf) {
@@ -36,13 +36,11 @@ public class EmployeeController {
         return employeeFindService.findAllEmployees();
     }
 
-    @CrossOrigin
     @PostMapping(MAIN_PATH)
     @ResponseBody
     public Employee createEmployee(@RequestBody final Employee employeeToCreate) {
         return employeeCreateService.createEmployee(employeeToCreate);
     }
-    @CrossOrigin
     @PutMapping(MAIN_PATH)
     @ResponseBody
     public Employee updateEmployee(@RequestBody final Employee employeeToUpdate) {
